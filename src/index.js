@@ -31,7 +31,7 @@ app.set('view engine', '.hbs');
 app.use(session({
     secret: 'Link App',
     resave: false,
-    saveUnimitialized: false,
+    saveUninitialized: false,
     store: new MySQLStore(database)
 }));
 app.use(flash());
@@ -46,7 +46,7 @@ app.use(passport.session());
 // Global Variables
 app.use((req, res, next)=>{
     app.locals.success = req.flash('success');
-    app.locals.warning = req.flash('warning');
+    app.locals.message = req.flash('message');
     next();
 });
 
