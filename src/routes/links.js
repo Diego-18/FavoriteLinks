@@ -14,7 +14,7 @@ router.post('/add', isLoggedIn, async (req, res) =>{
         title,
         url,
         description,
-        user_id: req.user.id
+        user_id: req.user.user_id
     };
     //console.log(newLink); 
     await pool.query('INSERT INTO links SET ?', [newLink]);
@@ -24,26 +24,26 @@ router.post('/add', isLoggedIn, async (req, res) =>{
 });
 
 router.get('/', isLoggedIn, async (req, res) =>{ 
-    const links = await pool.query('SELECT * FROM links WHERE user_id = ?', [req.user.id]);
+    const links = await pool.query('SELECT * FROM links WHERE user_id = ?', [req.user.user_id]);
     //console.log(links);
     res.render('links/list', {links});
 });
 
-router.get('/delete/:id', isLoggedIn, async(req,res) =>{
-    const { id } = req.params;
-    await pool.query('DELETE FROM links WHERE ID = ?', [id]);
+router.get('/delete/:link_id', isLoggedIn, async(req,res) =>{
+    const { link_id } = req.params;
+    await pool.query('DELETE FROM links WHERE link_id = ?', [link_id]);
     req.flash('warning', 'Link remove successfully');
     res.redirect('/links');
 });
 
-router.get('/edit/:id', isLoggedIn, async(req,res) =>{
-    const { id } = req.params;
-    const link = await pool.query("SELECT * FROM links WHERE id = ?", [id]);
+router.get('/edit/:link_id', isLoggedIn, async(req,res) =>{
+    const { link_id } = req.params;
+    const link = await pool.query("SELECT * FROM links WHERE link_id = ?", [link_id]);
     res.render('links/edit', {link: link[0]});
 });
 
-router.post('/edit/:id', isLoggedIn, async(req, res) =>{
-    const { id } = req.params;
+router.post('/edit/:link_id', isLoggedIn, async(req, res) =>{
+    const { link_id } = req.params;
     const { title, url, description } = req.body;
     const newLink = {
         title,
@@ -52,7 +52,7 @@ router.post('/edit/:id', isLoggedIn, async(req, res) =>{
     };
     //console.log(id);
     //console.log(newLink);
-    await pool.query("UPDATE links SET ? WHERE id = ?", [newLink, id]);
+    await pool.query("UPDATE links SET ? WHERE link_id = ?", [newLink, link_id]);
     req.flash('success', 'Link update successfully');
     res.redirect('/links');
 });

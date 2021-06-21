@@ -9,48 +9,48 @@ router.get('/add', isLoggedIn, (req, res) =>{
 
 router.post('/add', isLoggedIn, async (req, res) =>{
     //console.log(req.body);
-    const { title, url, description } = req.body;
-    const newLink = {
-        title,
+    const { name, description } = req.body;
+    const newArea = {
+        name,
         description,
-        user_id: req.user.id
+        user_id: req.user.user_id
     };
-    //console.log(newLink); 
-    await pool.query('INSERT INTO area SET ?', [newLink]);
+    //console.log(newArea); 
+    await pool.query('INSERT INTO area SET ?', [newArea]);
     //res.send('Received');
     req.flash('success', 'Area saved successfully');
     res.redirect('/area');
 });
 
 router.get('/', isLoggedIn, async (req, res) =>{ 
-    const area = await pool.query('SELECT * FROM area WHERE user_id = ?', [req.user.id]);
+    const area = await pool.query('SELECT * FROM area WHERE user_id = ?', [req.user.user_id]);
     //console.log(area);
     res.render('area/list', {area});
 });
 
-router.get('/delete/:id', isLoggedIn, async(req,res) =>{
-    const { id } = req.params;
-    await pool.query('DELETE FROM area WHERE ID = ?', [id]);
+router.get('/delete/:area_id', isLoggedIn, async(req,res) =>{
+    const { area_id } = req.params;
+    await pool.query('DELETE FROM area WHERE area_id = ?', [area_id]);
     req.flash('warning', 'Link remove successfully');
     res.redirect('/area');
 });
 
-router.get('/edit/:id', isLoggedIn, async(req,res) =>{
-    const { id } = req.params;
-    const area = await pool.query("SELECT * FROM area WHERE id = ?", [id]);
+router.get('/edit/:area_id', isLoggedIn, async(req,res) =>{
+    const { area_id } = req.params;
+    const area = await pool.query("SELECT * FROM area WHERE area_id = ?", [area_id]);
     res.render('area/edit', {area: area[0]});
 });
 
-router.post('/edit/:id', isLoggedIn, async(req, res) =>{
-    const { id } = req.params;
-    const { title, url, description } = req.body;
-    const newLink = {
-        title,
+router.post('/edit/:area_id', isLoggedIn, async(req, res) =>{
+    const { area_id } = req.params;
+    const { name, description } = req.body;
+    const newArea = {
+        name,
         description
     };
     //console.log(id);
-    //console.log(newLink);
-    await pool.query("UPDATE area SET ? WHERE id = ?", [newLink, id]);
+    //console.log(newArea);
+    await pool.query("UPDATE area SET ? WHERE area_id = ?", [newArea, area_id]);
     req.flash('success', 'Area update successfully');
     res.redirect('/area');
 });
