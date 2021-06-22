@@ -1,5 +1,6 @@
+@import url('sty_dark.css');
+
 body{
-    background: #f5f6f5;
     font-family: 'Oswald', sans-serif;
     overflow: hidden;
 }
@@ -25,6 +26,20 @@ body{
     font-size: 4rem;
     margin: 0;
     padding: 0;
+}
+
+.nav-content{
+    margin-right:0;
+}
+
+.name-principal, .title-item{
+    text-decoration: none;
+    margin-left: 5%;
+}
+
+.accordion-item, .accordion-button {
+    border: 0;
+    margin:0%;
 }
 
 @media (min-width:992px){
