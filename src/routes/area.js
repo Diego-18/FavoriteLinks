@@ -3,56 +3,54 @@ const router = express.Router();
 const { isLoggedIn } = require('../lib/auth');
 const pool = require('../database');
 
+let object = 'area';
+let tableName = 'area';
+const id = 'area_id';
+
 router.get('/add', isLoggedIn, (req, res) =>{
-    res.render('area/add');
+    res.render(object+'/add');
 });
 
 router.post('/add', isLoggedIn, async (req, res) =>{
-    //console.log(req.body);
     const { name, description } = req.body;
-    const newArea = {
+    const newObject = {
         name,
         description,
         user_id: req.user.user_id
-    };
-    //console.log(newArea); 
-    await pool.query('INSERT INTO area SET ?', [newArea]);
-    //res.send('Received');
-    req.flash('success', 'Area saved successfully');
-    res.redirect('/area');
+    }; 
+    await pool.query('INSERT INTO '+tableName+' SET ?', [newObject]);
+    req.flash('success', object+' saved successfully');
+    res.redirect('/'+object);
 });
 
 router.get('/', isLoggedIn, async (req, res) =>{ 
-    const area = await pool.query('SELECT * FROM area WHERE user_id = ?', [req.user.user_id]);
-    //console.log(area);
-    res.render('area/list', {area});
+    const query = await pool.query('SELECT * FROM '+tableName+' WHERE user_id = ?', [req.user.user_id]);
+    res.render(object+'/list', {query});
 });
 
-router.get('/delete/:area_id', isLoggedIn, async(req,res) =>{
+router.get('/delete/:'+id, isLoggedIn, async(req,res) =>{
     const { area_id } = req.params;
-    await pool.query('DELETE FROM area WHERE area_id = ?', [area_id]);
-    req.flash('warning', 'Link remove successfully');
-    res.redirect('/area');
+    await pool.query('DELETE FROM '+tableName+' WHERE '+id+' = ?', [area_id]);
+    req.flash('warning', object+' remove successfully');
+    res.redirect('/'+object);
 });
 
-router.get('/edit/:area_id', isLoggedIn, async(req,res) =>{
+router.get('/edit/:'+id, isLoggedIn, async(req,res) =>{
     const { area_id } = req.params;
-    const area = await pool.query("SELECT * FROM area WHERE area_id = ?", [area_id]);
-    res.render('area/edit', {area: area[0]});
+    const query = await pool.query('SELECT * FROM '+tableName+' WHERE '+id+' = ?', [area_id]);
+    res.render(object+'/edit', {link: query[0]});
 });
 
-router.post('/edit/:area_id', isLoggedIn, async(req, res) =>{
+router.post('/edit/:'+id, isLoggedIn, async(req, res) =>{
     const { area_id } = req.params;
     const { name, description } = req.body;
-    const newArea = {
+    const newObject = {
         name,
         description
     };
-    //console.log(id);
-    //console.log(newArea);
-    await pool.query("UPDATE area SET ? WHERE area_id = ?", [newArea, area_id]);
-    req.flash('success', 'Area update successfully');
-    res.redirect('/area');
+    await pool.query('UPDATE '+tableName+' SET ? WHERE '+id+' = ?', [newObject, area_id]);
+    req.flash('success', object+' update successfully');
+    res.redirect('/'+object);
 });
 
 module.exports = router;

@@ -1,6 +1,6 @@
 <div class="container p-4">
     <div class="row">
-       {{#each area}}
+       {{#each query}}
             <div class="col-md-3">
                 <div class="card text-center">
                     <div class="card-body">
@@ -10,9 +10,9 @@
                             </h3>
                         </a>
                         <p class="m-2">{{description}}</p>
-                        <p class="m-2">{{timeago create_at}}</p>
-                        <a href="/area/delete/{{id}}" class="btn btn-danger"> Delete</a>
-                        <a href="/area/edit/{{id}}" class="btn btn-secondary"> Edit</a>
+                        <p class="m-2">{{timeago createby}}</p>
+                        <a href="/area/delete/{{area_id}}" class="btn btn-danger"> Delete</a>
+                        <a href="/area/edit/{{area_id}}" class="btn btn-secondary"> Edit</a>
                     </div>
                 </div>
             </div>
