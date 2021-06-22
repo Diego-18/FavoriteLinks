@@ -38,8 +38,8 @@ router.get('/delete/:'+id, isLoggedIn, async(req,res) =>{
 
 router.get('/edit/:'+id, isLoggedIn, async(req,res) =>{
     const { link_id } = req.params;
-    const link = await pool.query('SELECT * FROM '+tableName+' WHERE '+id+' = ?', [link_id]);
-    res.render(object+'/edit', {link: link[0]});
+    const query = await pool.query('SELECT * FROM '+tableName+' WHERE '+id+' = ?', [link_id]);
+    res.render(object+'/edit', {link: query[0]});
 });
 
 router.post('/edit/:'+id, isLoggedIn, async(req, res) =>{
