@@ -37,6 +37,11 @@ body{
     margin-right:0;
 }
 
+.navbar-nav{
+    margin-right: 5%;
+}
+
+
 .name-principal, .title-item{
     text-decoration: none;
     margin-left: 5%;
