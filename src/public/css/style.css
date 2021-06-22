@@ -1,7 +1,13 @@
+@import url('sty_dark.css');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 body{
-    background: #f5f6f5;
     font-family: 'Oswald', sans-serif;
     overflow: hidden;
+}
+
+.gfont{
+    font-family: 'Lobster', cursive;
 }
 
 .index{
@@ -25,6 +31,32 @@ body{
     font-size: 4rem;
     margin: 0;
     padding: 0;
+}
+
+.nav-content{
+    margin-right:0;
+}
+
+.name-principal, .title-item{
+    text-decoration: none;
+    margin-left: 5%;
+}
+
+.name-principal{
+    font-size: 20px;
+}
+
+.accordion-item, .accordion-button {
+    border: 0;
+    margin:0%;
+}
+
+.title-item{
+    float:left;
+}
+
+.offcanvas-body {
+    padding: 1rem 0rem;
 }
 
 @media (min-width:992px){

@@ -1,0 +1,30 @@
+body, .offcanvas-body{
+    background: #102C54;
+}
+
+.cstm-navbar, .offcanvas-header,
+.accordion-button,
+.accordion-button:not(.collapsed){
+    background: #3B83BD;
+}
+
+.white-text, .accordion-button,
+.accordion-button:not(.collapsed){
+    color: #fff;
+}
+
+.btn-primary{
+    background: #102C54;
+}
+
+a:hover{
+    color:#3B83BD;
+}
+
+.accordion-item, .accordion-button {
+    border-bottom: solid .5px #fff;
+}
+
+.accordion-body{
+    background: #E3F2FD;
+}
