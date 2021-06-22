@@ -1,4 +1,4 @@
-<div class="container md-12s">
+<div class="container p-4">
     <div class="row">
        {{#each query}}
             <div class="col-md-3">
@@ -11,8 +11,8 @@
                         </a>
                         <p class="m-2">{{description}}</p>
                         <p class="m-2">{{timeago createby}}</p>
-                        <a href="/links/delete/{{link_id}}" class="btn btn-danger"> Delete Link</a>
-                        <a href="/links/edit/{{link_id}}" class="btn btn-secondary"> Edit</a>
+                        <a href="/area/delete/{{area_id}}" class="btn btn-danger"> Delete</a>
+                        <a href="/area/edit/{{area_id}}" class="btn btn-secondary"> Edit</a>
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
           <div class="col-md-4 mx-auto">
               <div class="card card-body text-center">
                     <p>There are not links saved yet.</p>
-                    <a href="/links/add">Create One!</a>
+                    <a href="/area/add">Create One!</a>
               </div>
           </div>       
        {{/each}} 

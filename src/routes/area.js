@@ -3,19 +3,18 @@ const router = express.Router();
 const { isLoggedIn } = require('../lib/auth');
 const pool = require('../database');
 
-let object = 'links';
-let tableName = 'links';
-const id = 'link_id';
+let object = 'area';
+let tableName = 'area';
+const id = 'area_id';
 
 router.get('/add', isLoggedIn, (req, res) =>{
     res.render(object+'/add');
 });
 
 router.post('/add', isLoggedIn, async (req, res) =>{
-    const { title, url, description } = req.body;
+    const { name, description } = req.body;
     const newObject = {
-        title,
-        url,
+        name,
         description,
         user_id: req.user.user_id
     }; 
@@ -30,27 +29,26 @@ router.get('/', isLoggedIn, async (req, res) =>{
 });
 
 router.get('/delete/:'+id, isLoggedIn, async(req,res) =>{
-    const { link_id } = req.params;
-    await pool.query('DELETE FROM '+tableName+' WHERE '+id+' = ?', [link_id]);
+    const { area_id } = req.params;
+    await pool.query('DELETE FROM '+tableName+' WHERE '+id+' = ?', [area_id]);
     req.flash('warning', object+' remove successfully');
     res.redirect('/'+object);
 });
 
 router.get('/edit/:'+id, isLoggedIn, async(req,res) =>{
-    const { link_id } = req.params;
-    const query = await pool.query('SELECT * FROM '+tableName+' WHERE '+id+' = ?', [link_id]);
+    const { area_id } = req.params;
+    const query = await pool.query('SELECT * FROM '+tableName+' WHERE '+id+' = ?', [area_id]);
     res.render(object+'/edit', {link: query[0]});
 });
 
 router.post('/edit/:'+id, isLoggedIn, async(req, res) =>{
-    const { link_id } = req.params;
-    const { title, url, description } = req.body;
+    const { area_id } = req.params;
+    const { name, description } = req.body;
     const newObject = {
-        title,
-        url,
+        name,
         description
     };
-    await pool.query('UPDATE '+tableName+' SET ? WHERE '+id+' = ?', [newObject, link_id]);
+    await pool.query('UPDATE '+tableName+' SET ? WHERE '+id+' = ?', [newObject, area_id]);
     req.flash('success', object+' update successfully');
     res.redirect('/'+object);
 });
