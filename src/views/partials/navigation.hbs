@@ -1,26 +1,15 @@
 <nav class="navbar cstm-navbar">
     <div class="col-lg-8 col-xl-8 col-md-8 col-sm-8 col-xs-8">
-      {{#if user_id}}
+      {{#if user}}
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#internal__menu">
           <i class="fas fa-bars"></i>
         </button>
-        <span class="white-text name-principal gfont">Favorites Link</span>
-      {{else}}
-        <span class="white-text name-principal gfont">Favorites Link</span>
       {{/if}}
+        <span class="white-text name-principal gfont">Favorites Link</span>
     </div>
     <div class="col-lg-4 col-xl-4 col-md-4 col-sm-4 col-xs-4">
       <ul class="navbar-nav">
-        {{#if user_id}}
-          {{!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Links
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/links">All Links</a>
-              <a class="dropdown-item" href="/links/add">Add a Links</a>
-            </div>
-          </li> --}}
+        {{#if user}}
           <li class="nav-item">
             <a href="/logout" class="nav-link white-text">
               <i class="fas fa-sign-out-alt"></i>
@@ -38,7 +27,7 @@
     </div>
 </nav>
 
-{{#if user_id}}
+{{#if user}}
   <div class="offcanvas offcanvas-start" tabindex="-1" id="internal__menu">
     <div class="offcanvas-header white-text">
       <h5 class="offcanvas-title" id="offcanvasExampleLabel">Favorites Link</h5>
