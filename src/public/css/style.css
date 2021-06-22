@@ -1,8 +1,13 @@
 @import url('sty_dark.css');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 body{
     font-family: 'Oswald', sans-serif;
     overflow: hidden;
+}
+
+.gfont{
+    font-family: 'Lobster', cursive;
 }
 
 .index{
