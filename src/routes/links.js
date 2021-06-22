@@ -3,58 +3,56 @@ const router = express.Router();
 const { isLoggedIn } = require('../lib/auth');
 const pool = require('../database');
 
+let object = 'links';
+let tableName = 'links';
+const id = 'link_id';
+
 router.get('/add', isLoggedIn, (req, res) =>{
-    res.render('links/add');
+    res.render(object+'/add');
 });
 
 router.post('/add', isLoggedIn, async (req, res) =>{
-    //console.log(req.body);
     const { title, url, description } = req.body;
-    const newLink = {
+    const newObject = {
         title,
         url,
         description,
         user_id: req.user.user_id
-    };
-    //console.log(newLink); 
-    await pool.query('INSERT INTO links SET ?', [newLink]);
-    //res.send('Received');
-    req.flash('success', 'Link saved successfully');
-    res.redirect('/links');
+    }; 
+    await pool.query('INSERT INTO '+tableName+' SET ?', [newObject]);
+    req.flash('success', object+' saved successfully');
+    res.redirect('/'+object);
 });
 
 router.get('/', isLoggedIn, async (req, res) =>{ 
-    const links = await pool.query('SELECT * FROM links WHERE user_id = ?', [req.user.user_id]);
-    //console.log(links);
-    res.render('links/list', {links});
+    const query = await pool.query('SELECT * FROM '+tableName+' WHERE user_id = ?', [req.user.user_id]);
+    res.render(object+'/list', {query});
 });
 
-router.get('/delete/:link_id', isLoggedIn, async(req,res) =>{
+router.get('/delete/:'+id, isLoggedIn, async(req,res) =>{
     const { link_id } = req.params;
-    await pool.query('DELETE FROM links WHERE link_id = ?', [link_id]);
-    req.flash('warning', 'Link remove successfully');
-    res.redirect('/links');
+    await pool.query('DELETE FROM '+tableName+' WHERE '+id+' = ?', [link_id]);
+    req.flash('warning', object+' remove successfully');
+    res.redirect('/'+object);
 });
 
-router.get('/edit/:link_id', isLoggedIn, async(req,res) =>{
+router.get('/edit/:'+id, isLoggedIn, async(req,res) =>{
     const { link_id } = req.params;
-    const link = await pool.query("SELECT * FROM links WHERE link_id = ?", [link_id]);
-    res.render('links/edit', {link: link[0]});
+    const link = await pool.query('SELECT * FROM '+tableName+' WHERE '+id+' = ?', [link_id]);
+    res.render(object+'/edit', {link: link[0]});
 });
 
-router.post('/edit/:link_id', isLoggedIn, async(req, res) =>{
+router.post('/edit/:'+id, isLoggedIn, async(req, res) =>{
     const { link_id } = req.params;
     const { title, url, description } = req.body;
-    const newLink = {
+    const newObject = {
         title,
         url,
         description
     };
-    //console.log(id);
-    //console.log(newLink);
-    await pool.query("UPDATE links SET ? WHERE link_id = ?", [newLink, link_id]);
-    req.flash('success', 'Link update successfully');
-    res.redirect('/links');
+    await pool.query('UPDATE '+tableName+' SET ? WHERE '+id+' = ?', [newObject, link_id]);
+    req.flash('success', object+' update successfully');
+    res.redirect('/'+object);
 });
 
 module.exports = router;

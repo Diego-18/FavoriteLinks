@@ -1,6 +1,6 @@
-<div class="container md-12">
+<div class="container md-12s">
     <div class="row">
-       {{#each links}}
+       {{#each query}}
             <div class="col-md-3">
                 <div class="card text-center">
                     <div class="card-body">
@@ -10,7 +10,7 @@
                             </h3>
                         </a>
                         <p class="m-2">{{description}}</p>
-                        <p class="m-2">{{timeago create_at}}</p>
+                        <p class="m-2">{{timeago createby}}</p>
                         <a href="/links/delete/{{link_id}}" class="btn btn-danger"> Delete Link</a>
                         <a href="/links/edit/{{link_id}}" class="btn btn-secondary"> Edit</a>
                     </div>
