@@ -42,6 +42,14 @@ body{
     margin:0%;
 }
 
+.title-item{
+    float:left;
+}
+
+.offcanvas-body {
+    padding: 1rem 0rem;
+}
+
 @media (min-width:992px){
     .masthead h1{
         font-size: 5.5rem;

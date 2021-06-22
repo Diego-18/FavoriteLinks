@@ -3,11 +3,13 @@ body, .offcanvas-body{
 }
 
 .cstm-navbar, .offcanvas-header,
-.accordion-button{
+.accordion-button,
+.accordion-button:not(.collapsed){
     background: #3B83BD;
 }
 
-.white-text{
+.white-text, .accordion-button,
+.accordion-button:not(.collapsed){
     color: #fff;
 }
 
@@ -16,14 +18,13 @@ body, .offcanvas-body{
 }
 
 a:hover{
-    color:#fff;
-}
-
-.accordion-button:not(.collapsed) {
-    color: #fff;
-    background-color: #102C54;
+    color:#3B83BD;
 }
 
 .accordion-item, .accordion-button {
     border-bottom: solid .5px #fff;
+}
+
+.accordion-body{
+    background: #E3F2FD;
 }
