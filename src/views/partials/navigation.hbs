@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
-        {{#if user}}
+        {{#if user_id}}
           <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#internal__menu">
             <i class="fas fa-bars"></i>
           </button>
@@ -13,7 +13,7 @@
       </div>
       <div class="col-lg-2 col-xl-2 col-md-2 col-sm-6 col-xs-2">
         <ul class="navbar-nav">
-          {{#if user}}
+          {{#if user_id}}
             {{!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Links
@@ -41,7 +41,7 @@
     </div>
 </nav>
 
-{{#if user}}
+{{#if user_id}}
   <div class="offcanvas offcanvas-start" tabindex="-1" id="internal__menu">
     <div class="offcanvas-header white-text">
       <h5 class="offcanvas-title" id="offcanvasExampleLabel">Favorites Link</h5>
