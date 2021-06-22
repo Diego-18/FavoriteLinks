@@ -1,32 +1,129 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">Favorites Link</a>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav ml-auto">
-      {{#if user}}
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Links
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/links">All Links</a>
-            <a class="dropdown-item" href="/links/add">Add a Links</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a href="/profile" class="nav-link">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a href="/logout" class="nav-link">Logout</a>
-        </li>
+    <div class="row">
+      <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-xs-6">
+        {{#if user}}
+          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#internal__menu">
+            <i class="fas fa-bars"></i>
+          </button>
         {{else}}
-          <li class="nav-item">
-            <a href="/signin" class="nav-link">SignIn</a>
-          </li>
-          <li class="nav-item">
-            <a href="/signup" class="nav-link">SignUp</a>
-          </li>
-      {{/if}}
-    </ul>
-  </div>
+          <a class="">Favorites Link</a>
+        {{/if}}
+      </div>
+      <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-xs-6">
+        <ul class="navbar-nav">
+          {{#if user}}
+            {{!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/links">All Links</a>
+                <a class="dropdown-item" href="/links/add">Add a Links</a>
+              </div>
+            </li> --}}
+            <li class="nav-item">
+              <a href="/logout" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i>
+              </a>
+            </li>
+            {{else}}
+              <li class="nav-item">
+                <a href="/signin" class="nav-link">SignIn</a>
+              </li>
+              <li class="nav-item">
+                <a href="/signup" class="nav-link">SignUp</a>
+              </li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
 </nav>
+
+{{#if user}}
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="internal__menu">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Favorites Link</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsSettings" aria-expanded="true" aria-controls="collapsSettings">
+                <i class="fas fa-cogs"></i>
+                <span>Settings</span>
+              </button>
+            </h2>
+            <div id="collapsSettings" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <ul class="list-group">
+                  <li class="list-group list-group-flush" aria-current="true">
+                    <span>Areas</span>
+                    <i class="fas fa-cubes"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLinks" aria-expanded="false" aria-controls="collapseLinks">
+                <i class="fas fa-link"></i>
+                Links
+              </button>
+            </h2>
+            <div id="collapseLinks" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <ul class="list-group">
+                  <li class="list-group list-group-flush" aria-current="true">
+                    <span>Tools</span>
+                    <i class="fas fa-cubes"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProfile" aria-expanded="false" aria-controls="collapseProfile">
+                <i class="fas fa-users"></i>
+                Profile
+              </button>
+            </h2>
+            <div id="collapseProfile" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <ul class="list-group">
+                  <a href="/profile" class="nav-link">
+                     <li class="list-group list-group-flush" aria-current="true">
+                       <span>Profile</span>
+                       <i class="fas fa-cubes"></i>
+                      </li>
+                  </a>
+                </ul>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        {{!-- <ul>
+          <li>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              link
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/links">All Links</a>
+              <a class="dropdown-item" href="/links/add">Add a Links</a>
+            </div>
+          </li>
+        </ul> --}}
+      
+      </div>
+      <div class="dropdown mt-3">
+
+      </div>
+    </div>
+  </div>
+  {{/if}}
