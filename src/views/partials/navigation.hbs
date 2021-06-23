@@ -1,7 +1,7 @@
 <nav class="navbar cstm-navbar">
     <div class="col-lg-8 col-xl-8 col-md-8 col-sm-8 col-xs-8">
       {{#if user}}
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#internal__menu">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#internal__menu" title="Menu">
           <i class="fas fa-bars"></i>
         </button>
       {{/if}}
@@ -11,9 +11,11 @@
       <ul class="navbar-nav text-end">
         {{#if user}}
           <li class="nav-item">
-            <a href="/logout" class="nav-link white-text">
+            <a href="/logout" class="nav-link white-text" title="Log Out">
               <i class="fas fa-sign-out-alt"></i>
             </a>
+
+
           </li>
           {{else}}
             <li class="nav-item">
