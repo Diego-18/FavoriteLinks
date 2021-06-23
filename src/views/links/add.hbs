@@ -9,21 +9,21 @@
             <div class="card">
                 <div class="card-body">
                     <form action="/links/add" method="POST">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="title" placeholder="Title" autofocus>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="title" placeholder="Title" autofocus autocomplete="off">
                         </div>
 
-                        <div class="form-group">
-                            <input type="url" class="form-control" name="url" placeholder="URL">
+                        <div class="mb-3">
+                            <input type="url" class="form-control" name="url" placeholder="URL" autocomplete="off">
                         </div>
 
-                        <div class="form-group">
-                            <textarea name="description" rows="2" class="form-control" placeholder="Descriptions"></textarea>
+                        <div class="mb-3">
+                            <textarea name="description" rows="2" class="form-control" placeholder="Descriptions" autocomplete="off"></textarea>
                         </div>
 
-                        <div class="form-group">
-                            <button class="btn btn-success btn-block">
-                                Save
+                        <div class="mb-3">
+                            <button class="btn cstm-btn btn-block">
+                                <i class="far fa-save white-text"></i>
                             </button>
                         </div>
                     </form>

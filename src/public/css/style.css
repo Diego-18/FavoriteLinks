@@ -3,7 +3,6 @@
 
 body{
     font-family: 'Oswald', sans-serif;
-    overflow: hidden;
 }
 
 .gfont{
@@ -69,7 +68,11 @@ body{
 }
 
 .content-btn{
-    margin: 2%;
+    margin: 1%;
+}
+
+.card {
+    margin-top: 5%;
 }
 
 @media (min-width:992px){

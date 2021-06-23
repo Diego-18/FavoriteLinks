@@ -56,7 +56,6 @@ router.get('/edit/:'+id, isLoggedIn, async(req,res) =>{
     const { link_id } = req.params;
     const query = await pool.query('SELECT * FROM '+tableName+' WHERE '+id+' = ?', [link_id]);
     try{
-        query();
         res.render(object+'/edit', {link: query[0]});
     }
     catch(error){
@@ -77,7 +76,6 @@ router.post('/edit/:'+id, isLoggedIn, async(req, res) =>{
     };
     const operation = await pool.query('UPDATE '+tableName+' SET ? WHERE '+id+' = ?', [newObject, link_id]);
     try{
-        operation();
         req.flash('success', object+' update successfully');
         res.redirect('/'+object);
     }
