@@ -9,21 +9,12 @@ body{
     font-family: 'Lobster', cursive;
 }
 
-.index{
-    width: 100vw;
-    height: 100vh;
-}
-
 .masthead{
     color: green;
-    min-height: 30rem;
+    min-height: 20rem;
     width: 100%;
     height: 100%;
-    padding-top: 8rem;
-    background: url('img/background.jpg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    padding-top: 6rem;
 }
 
 .masthead h1{

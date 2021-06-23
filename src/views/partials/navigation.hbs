@@ -14,15 +14,12 @@
             <a href="/logout" class="nav-link white-text" title="Log Out">
               <i class="fas fa-sign-out-alt"></i>
             </a>
-
-
           </li>
           {{else}}
             <li class="nav-item">
-              <a href="/signin" class="nav-link white-text">SignIn</a>
-            </li>
-            <li class="nav-item">
-              <a href="/signup" class="nav-link white-text">SignUp</a>
+              <a href="/signin" class="nav-link white-text" title="Log In">
+                <i class="fas fa-sign-out-alt"></i>
+              </a>
             </li>
         {{/if}}
       </ul>
@@ -38,7 +35,7 @@
     <div class="offcanvas-body">
       <div>
         <div class="accordion" id="item-nav">
-          <div class="accordion-item">
+          {{!-- <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
               <button class="accordion-button collapsed white-text" type="button" data-bs-toggle="collapse" data-bs-target="#collapsSettings" aria-expanded="false" aria-controls="collapsSettings">
                 <i class="fas fa-cogs"></i>
@@ -72,7 +69,7 @@
                 </ul>
               </div>
             </div>
-          </div>
+          </div> --}}
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
               <button class="accordion-button collapsed white-text" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLinks" aria-expanded="false" aria-controls="collapseLinks">
@@ -88,7 +85,7 @@
                   <li class="list-group list-group-flush" aria-current="true">
                     <a href="/links">
                       <span class="title-item">
-                        <i class="fas fa-cubes"></i>Tools
+                        <i class="fas fa-cubes"></i>Links
                       </span>
                     </a>
                   </li>
@@ -97,7 +94,7 @@
             </div>
           </div>
 
-          <div class="accordion-item">
+          {{!-- <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
               <button class="accordion-button collapsed white-text" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProfile" aria-expanded="false" aria-controls="collapseProfile">
                 <i class="fas fa-users"></i>
@@ -117,7 +114,7 @@
                 </ul>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
         {{!-- <ul>
           <li>

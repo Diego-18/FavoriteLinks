@@ -3,24 +3,25 @@
         <div class="col-md-4 mx-auto">
             <div class="card text-center">
                 <div class="card-header">
-                    <h3>Sign In</h3>
+                    <h3 class="gfont">Sign In</h3>
                 </div>
 
                 <div class="card-body">
                     <img src="/img/user.png" alt="user" class="card-img-top mx-auto m-2 rounded-circle w-50">
                     <form action="/signin" method="POST">
-                        <div class="form-group">
+                        <div class="mb-3">
                             <input type="text" name="username" placeholder="User Name" class="form-control">
                         </div>
 
-                        <div class="form-group">
+                        <div class="mb-3">
                             <input type="password" name="password" placeholder="Password" class="form-control">
                         </div>
 
-                        <div class="form-group">
-                            <button class="btn btn-success btn-block">
+                        <div class="mb-3">
+                            <button class="btn cstm-btn btn-block">
                                 Sign In
                             </button>
+                            <a href="/signup" class="btn btn-info white-text">Sign Up</a>
                         </div>
                     </form>
                 </div>
