@@ -64,6 +64,14 @@ body{
     padding: 1rem 0rem;
 }
 
+.cstm-container{
+    margin: 3%;
+}
+
+.content-btn{
+    margin: 2%;
+}
+
 @media (min-width:992px){
     .masthead h1{
         font-size: 5.5rem;

@@ -4,7 +4,7 @@ body, .offcanvas-body{
 
 .cstm-navbar, .offcanvas-header,
 .accordion-button,
-.accordion-button:not(.collapsed){
+.accordion-button:not(.collapsed), .cstm-btn{
     background: #3B83BD;
 }
 
