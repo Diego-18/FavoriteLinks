@@ -1,6 +1,6 @@
-# Favorite Websites List
+<img src="src/public/img/Logo.png" alt="logo" width="500" height="100">
 
-<img src="src/public/img/logo.png" alt="logo" width="40" height="40">
+# Favorite Links
 
 It is a tool that could help you with the storage of your favorite links, replacing the history of the same browser that for some reason could be eliminated, this way when that happens you can have your links safe in a database and continue accessing them whenever you prefer.
 
