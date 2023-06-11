@@ -1,30 +1,34 @@
-body, .offcanvas-body{
-    background: #102C54;
+body,
+.offcanvas-body {
+	background: #102c54;
 }
 
-.cstm-navbar, .offcanvas-header,
+.cstm-navbar,
+.offcanvas-header,
 .accordion-button,
-.accordion-button:not(.collapsed), .cstm-btn{
-    background: #3B83BD;
+.accordion-button:not(.collapsed),
+.cstm-btn {
+	background: #3b83bd;
+	color: #fff;
 }
 
-.white-text, .accordion-button,
-.accordion-button:not(.collapsed){
-    color: #fff;
+.btn-primary {
+	background: #102c54;
 }
 
-.btn-primary{
-    background: #102C54;
+a:hover {
+	color: #3b83bd;
 }
 
-a:hover{
-    color:#3B83BD;
+.nav-link {
+	color: #fff !important;
 }
 
-.accordion-item, .accordion-button {
-    border-bottom: solid .5px #fff;
+.accordion-item,
+.accordion-button {
+	border-bottom: solid 0.5px #fff;
 }
 
-.accordion-body{
-    background: #E3F2FD;
+.accordion-body {
+	background: #e3f2fd;
 }

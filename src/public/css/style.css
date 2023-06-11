@@ -1,73 +1,71 @@
 @import url('sty_dark.css');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
-body{
-    font-family: 'Oswald', sans-serif;
+body {
+	font-family: 'Oswald', sans-serif;
 }
 
-.gfont{
-    font-family: 'Lobster', cursive;
+.gfont {
+	font-family: 'Lobster', cursive;
 }
 
-.masthead{
-    color: green;
-    min-height: 20rem;
-    width: 100%;
-    height: 100%;
-    padding-top: 6rem;
+.masthead {
+	color: green;
+	min-height: 20rem;
+	width: 100%;
+	height: 100%;
+	padding-top: 6rem;
 }
 
-.masthead h1{
-    font-size: 4rem;
-    margin: 0;
-    padding: 0;
+.masthead h1 {
+	font-size: 4rem;
+	margin: 0;
+	padding: 0;
 }
 
-.nav-content{
-    margin-right:0;
+.nav-content,
+.navbar-nav {
+	margin-right: 5%;
 }
 
-.navbar-nav{
-    margin-right: 5%;
+.name-principal,
+.title-item {
+	text-decoration: none;
+	margin-left: 5%;
 }
 
-
-.name-principal, .title-item{
-    text-decoration: none;
-    margin-left: 5%;
+.name-principal {
+	font-size: 20px;
 }
 
-.name-principal{
-    font-size: 20px;
+.accordion-item,
+.accordion-button {
+	border: 0;
+	margin: 0;
 }
 
-.accordion-item, .accordion-button {
-    border: 0;
-    margin:0%;
-}
-
-.title-item{
-    float:left;
+.title-item {
+	float: left;
 }
 
 .offcanvas-body {
-    padding: 1rem 0rem;
+	padding: 1rem 0rem;
 }
 
-.cstm-container{
-    margin: 3%;
+.cstm-container {
+	margin: 3%;
 }
 
-.content-btn{
-    margin: 1%;
+.content-btn {
+	margin: 1%;
 }
 
 .card {
-    margin-top: 5%;
+	margin-top: 5%;
 }
 
-@media (min-width:992px){
-    .masthead h1{
-        font-size: 5.5rem;
-    }
+@media (min-width: 992px) {
+	.masthead h1 {
+		font-size: 5.5rem;
+	}
 }

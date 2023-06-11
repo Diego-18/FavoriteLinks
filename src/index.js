@@ -5,10 +5,8 @@ const path = require('path');
 const flash = require('connect-flash');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
-const {database} = require('./keys');
+const { database } = require('./keys');
 const passport = require('passport');
-
-
 
 // initializations
 const app = express();
@@ -17,38 +15,40 @@ require('./lib/passport');
 // settings
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs', exphbs({
-    defaultLayout: 'main',
-    layoutsDir:path.join(app.get('views'), 'Layouts'),
-    partialsDir: path.join(app.get('views'),'partials'),
-    extname: '.hbs',
-    helpers: require('./lib/handlebars')
-}));
+app.engine(
+	'.hbs',
+	exphbs({
+		defaultLayout: 'main',
+		layoutsDir: path.join(app.get('views'), 'Layouts'),
+		partialsDir: path.join(app.get('views'), 'partials'),
+		extname: '.hbs',
+		helpers: require('./lib/handlebars'),
+	})
+);
 app.set('view engine', '.hbs');
 
-
 // Middlewares
-app.use(session({
-    secret: 'Link App',
-    resave: false,
-    saveUninitialized: false,
-    store: new MySQLStore(database)
-}));
+app.use(
+	session({
+		secret: 'Link App',
+		resave: false,
+		saveUninitialized: false,
+		store: new MySQLStore(database),
+	})
+);
 app.use(flash());
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
 // Global Variables
-app.use((req, res, next)=>{
-    app.locals.success = req.flash('success');
-    app.locals.warning = req.flash('warning');
-    app.locals.user = req.user;
-    next();
+app.use((req, res, next) => {
+	app.locals.success = req.flash('success');
+	app.locals.warning = req.flash('warning');
+	app.locals.user = req.user;
+	next();
 });
 
 // Routes
@@ -62,5 +62,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Starting the Server
 app.listen(app.get('port'), () => {
-    console.log('Server on port', app.get('port'));
+	console.log('Server on port', app.get('port'));
 });
